@@ -1,0 +1,376 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    overflow:hidden;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:url("../img/portada.png");
+    background-size:cover;
+    background-position:center;
+}
+
+.background{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.25);
+
+}
+
+.contenido{
+
+    position:relative;
+
+    z-index:5;
+
+    text-align:center;
+
+    animation:aparecer 2s;
+
+}
+
+h2{
+
+    color:white;
+
+    letter-spacing:5px;
+
+    margin-bottom:20px;
+
+}
+
+h1{
+
+    color:white;
+
+    font-size:60px;
+
+    line-height:65px;
+
+    text-shadow:
+    4px 4px 10px rgba(0,0,0,.3);
+
+}
+
+p{
+
+    margin-top:30px;
+
+    color:white;
+
+    font-size:25px;
+
+}
+
+button{
+
+    margin-top:45px;
+
+    padding:18px 50px;
+
+    border:none;
+
+    border-radius:60px;
+
+    background:#FFD54F;
+
+    color:#1B5E20;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    font-weight:bold;
+
+    box-shadow:0 0 25px rgba(255,213,79,.6);
+
+}
+
+button:hover{
+
+    transform:scale(1.1);
+
+    background:white;
+
+    box-shadow:0 0 40px white;
+
+}
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+.descripcion{
+
+    width:700px;
+
+    margin:auto;
+
+    margin-top:25px;
+
+    font-size:20px;
+
+    line-height:35px;
+
+    color:white;
+
+}
+/*==========================
+SOL
+==========================*/
+
+.sol{
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:#FFD54F;
+
+    top:50px;
+    right:120px;
+
+    box-shadow:
+    0 0 40px #FFD54F,
+    0 0 90px #FFD54F;
+
+    animation:brillo 4s infinite alternate;
+
+}
+
+@keyframes brillo{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.15);
+
+    }
+
+}
+
+
+/*==========================
+NUBES
+==========================*/
+
+.nube{
+
+    position:absolute;
+
+    background:white;
+
+    border-radius:50px;
+
+    opacity:.8;
+
+}
+
+.nube::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    background:white;
+
+    border-radius:50%;
+
+    top:-20px;
+    left:20px;
+
+}
+
+.nube::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    background:white;
+
+    border-radius:50%;
+
+    top:-35px;
+    left:60px;
+
+}
+
+.nube1{
+
+    width:180px;
+    height:60px;
+
+    top:120px;
+
+    left:-250px;
+
+    animation:nubes 50s linear infinite;
+
+}
+
+.nube2{
+
+    width:230px;
+    height:70px;
+
+    top:220px;
+
+    left:-500px;
+
+    animation:nubes 70s linear infinite;
+
+}
+
+.nube3{
+
+    width:150px;
+    height:55px;
+
+    top:80px;
+
+    left:-700px;
+
+    animation:nubes 90s linear infinite;
+
+}
+
+@keyframes nubes{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(2200px);
+
+    }
+
+}
+/*=====================
+PARTÍCULAS
+======================*/
+
+.particula{
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    background:white;
+
+    border-radius:50%;
+
+    opacity:.6;
+
+    animation:flotar infinite alternate;
+
+}
+
+@keyframes flotar{
+
+    from{
+
+        transform:translateY(0);
+
+        opacity:.2;
+
+    }
+
+    to{
+
+        transform:translateY(-30px);
+
+        opacity:1;
+
+    }
+
+}
+
+/*=====================
+HOJAS
+======================*/
+
+.hoja{
+
+    position:absolute;
+
+    width:18px;
+
+    height:18px;
+
+    background:#2E7D32;
+
+    border-radius:50% 0;
+
+    opacity:.8;
+
+    animation:caer linear infinite;
+
+}
+
+@keyframes caer{
+
+    from{
+
+        transform:
+        translateY(-80px)
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+        translateY(120vh)
+        rotate(360deg);
+
+    }
+
+}

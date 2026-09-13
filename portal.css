@@ -1,0 +1,2380 @@
+/*=====================================================
+PORTAL
+Exploradores de los Ecosistemas Colombianos
+=====================================================*/
+
+:root{
+
+    --verde:#4CAF50;
+    --verdeOscuro:#2E7D32;
+    --azul:#1976D2;
+    --dorado:#F9A825;
+
+    --blanco:#ffffff;
+
+    --texto:#263238;
+
+    --gris:#ECEFF1;
+
+    --glass:rgba(255,255,255,.18);
+
+    --sombra:0 25px 60px rgba(0,0,0,.25);
+
+}
+
+/*=====================================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    color:white;
+
+    overflow-x:hidden;
+
+    background:
+
+    linear-gradient(
+
+        rgba(0,0,0,.45),
+
+        rgba(0,0,0,.45)
+
+    ),
+
+    url("../img/fondo_categorias.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+}
+
+/*=====================================================*/
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+
+        circle at top,
+
+        rgba(255,255,255,.08),
+
+        transparent 65%
+
+    );
+
+    z-index:-1;
+
+}
+
+/*=====================================================*/
+
+header{
+
+    width:min(1350px,92%);
+
+    margin:auto;
+
+    padding:45px 0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:40px;
+
+}
+
+/*=====================================================*/
+
+#volver{
+
+    background:rgba(255,255,255,.15);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    color:white;
+
+    backdrop-filter:blur(15px);
+
+    border-radius:40px;
+
+    padding:15px 26px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+#volver:hover{
+
+    background:white;
+
+    color:var(--verdeOscuro);
+
+    transform:translateY(-3px);
+
+}
+
+/*=====================================================*/
+
+.titulo{
+
+    flex:1;
+
+    text-align:right;
+
+}
+
+.titulo h1{
+
+    font-size:2.8rem;
+
+    font-weight:800;
+
+    text-shadow:0 8px 20px rgba(0,0,0,.30);
+
+}
+
+#nombreCategoria{
+
+    margin-top:12px;
+
+    font-size:1.8rem;
+
+    color:#FFE082;
+
+    font-weight:700;
+
+}
+
+.titulo p{
+
+    margin-top:12px;
+
+    font-size:1.05rem;
+
+    opacity:.95;
+
+}
+
+/*=====================================================
+BARRA DE PROGRESO
+=====================================================*/
+
+.progreso{
+
+    margin-top:35px;
+
+    width:420px;
+
+    margin-left:auto;
+
+}
+
+.textoProgreso{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:12px;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+}
+
+.barra{
+
+    height:15px;
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.avance{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #66BB6A,
+
+        #A5D6A7
+
+    );
+
+    transition:1s;
+
+}
+
+/*=====================================================*/
+
+.acciones{
+
+    width:min(1300px,92%);
+
+    margin:auto;
+
+}
+
+.tituloPanel{
+
+    text-align:center;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    margin-bottom:40px;
+
+    text-shadow:0 5px 15px rgba(0,0,0,.30);
+
+}
+
+/*=====================================================
+PANEL
+=====================================================*/
+
+.panel{
+
+    width:min(1300px,92%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:35px;
+
+}
+/*=====================================================
+MÓDULOS DEL PORTAL
+=====================================================*/
+
+.modulo{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.16);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:30px;
+
+    padding:35px;
+
+    min-height:300px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.45s;
+
+    box-shadow:var(--sombra);
+
+}
+
+/*=====================================================
+BRILLO SUPERIOR
+=====================================================*/
+
+.modulo::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-40%;
+
+    width:180%;
+
+    height:180%;
+
+    background:linear-gradient(
+
+        130deg,
+
+        transparent,
+
+        rgba(255,255,255,.18),
+
+        transparent
+
+    );
+
+    transform:rotate(12deg);
+
+    transition:.9s;
+
+}
+
+.modulo:hover::before{
+
+    top:120%;
+
+}
+
+/*=====================================================
+HOVER
+=====================================================*/
+
+.modulo:hover{
+
+    transform:translateY(-12px) scale(1.03);
+
+    box-shadow:
+
+        0 35px 70px rgba(0,0,0,.28),
+
+        0 0 25px rgba(255,255,255,.12);
+
+}
+
+/*=====================================================
+ICONO
+=====================================================*/
+
+.icono{
+
+    width:140px;
+
+    height:140px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:20px;
+
+}
+
+.icono img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    transition:.5s;
+
+    filter:drop-shadow(0 8px 20px rgba(0,0,0,.25));
+
+}
+
+.modulo:hover .icono img{
+
+    transform:scale(1.12) rotate(-3deg);
+
+}
+
+/*=====================================================
+TEXTO
+=====================================================*/
+
+.modulo h3{
+
+    color:white;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+    text-shadow:0 4px 12px rgba(0,0,0,.30);
+
+}
+
+.modulo p{
+
+    max-width:320px;
+
+    color:rgba(255,255,255,.92);
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+}
+
+/*=====================================================
+BORDE DE COLOR
+=====================================================*/
+
+#btnConoce{
+
+    border-top:8px solid #66BB6A;
+
+}
+
+#btnMapa{
+
+    border-top:8px solid #29B6F6;
+
+}
+
+#btnJuego{
+
+    border-top:8px solid #FFA726;
+
+}
+
+#btnFinal{
+
+    border-top:8px solid #AB47BC;
+
+}
+
+/*=====================================================
+EFECTO DE LUZ INFERIOR
+=====================================================*/
+
+.modulo::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-25px;
+
+    transform:translateX(-50%);
+
+    width:70%;
+
+    height:30px;
+
+    background:rgba(255,255,255,.18);
+
+    filter:blur(22px);
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+.modulo:hover::after{
+
+    opacity:1;
+
+}
+
+/*=====================================================
+FRASE FINAL
+=====================================================*/
+
+.frase{
+
+    width:min(1200px,92%);
+
+    margin:60px auto 50px;
+
+    text-align:center;
+
+    font-size:1.15rem;
+
+    font-weight:500;
+
+    color:white;
+
+    text-shadow:0 4px 12px rgba(0,0,0,.35);
+
+}
+/*=====================================================
+ANIMACIONES
+=====================================================*/
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+        transform:translateY(-25px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes subir{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+header{
+
+    animation:aparecer .8s ease;
+
+}
+
+.modulo{
+
+    animation:subir .8s ease both;
+
+}
+
+.modulo:nth-child(1){
+
+    animation-delay:.15s;
+
+}
+
+.modulo:nth-child(2){
+
+    animation-delay:.35s;
+
+}
+
+.modulo:nth-child(3){
+
+    animation-delay:.55s;
+
+}
+
+.modulo:nth-child(4){
+
+    animation-delay:.75s;
+
+}
+
+/*=====================================================
+FOCUS
+=====================================================*/
+
+button:focus{
+
+    outline:3px solid rgba(255,255,255,.5);
+
+    outline-offset:4px;
+
+}
+
+.modulo:focus{
+
+    outline:3px solid rgba(255,255,255,.4);
+
+    outline-offset:6px;
+
+}
+
+/*=====================================================
+RESPONSIVE
+=====================================================*/
+
+@media(max-width:1100px){
+
+    .titulo h1{
+
+        font-size:2.3rem;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    header{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+    }
+
+    .titulo{
+
+        text-align:center;
+
+    }
+
+    .progreso{
+
+        margin-left:auto;
+        margin-right:auto;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .panel{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .modulo{
+
+        min-height:260px;
+
+    }
+
+    .icono{
+
+        width:120px;
+        height:120px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    header{
+
+        padding:30px 0;
+
+    }
+
+    #volver{
+
+        width:100%;
+
+    }
+
+    .titulo h1{
+
+        font-size:1.8rem;
+
+    }
+
+    #nombreCategoria{
+
+        font-size:1.4rem;
+
+    }
+
+    .tituloPanel{
+
+        font-size:1.5rem;
+
+    }
+
+    .modulo{
+
+        padding:25px;
+
+    }
+
+    .modulo h3{
+
+        font-size:1.6rem;
+
+    }
+
+    .modulo p{
+
+        font-size:.95rem;
+
+    }
+
+}
+
+/*=====================================================
+SCROLLBAR
+=====================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#dfe9df;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2E7D32;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1B5E20;
+
+}
+/*======================================
+SECCIÓN CONOCE
+======================================*/
+
+.seccion{
+
+    color:white;
+
+}
+
+.seccion h2{
+
+    margin:25px 0 15px;
+
+    font-size:2rem;
+
+}
+
+.seccion p{
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+
+}
+
+.imagenContenido{
+
+    display:block;
+
+    width:220px;
+
+    margin:auto;
+
+}
+
+.ecosistemas{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+    margin-top:25px;
+
+}
+
+.ecosistemas div{
+
+    background:rgba(255,255,255,.12);
+
+    padding:20px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.ecosistemas div:hover{
+
+    transform:translateY(-5px);
+
+    background:rgba(255,255,255,.22);
+
+}
+/*=====================================================
+GALERÍA DE ECOSISTEMAS
+=====================================================*/
+
+.ecosistemas{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:28px;
+
+}
+
+.tarjetaEco{
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.18);
+
+}
+
+.tarjetaEco:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.28);
+
+}
+
+.tarjetaEco img{
+
+    width:100%;
+
+    height:190px;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.tarjetaEco:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.infoEco{
+
+    padding:22px;
+
+}
+
+.infoEco h3{
+
+    font-size:1.35rem;
+
+    margin-bottom:10px;
+
+    color:white;
+
+}
+
+.infoEco p{
+
+    color:rgba(255,255,255,.92);
+
+    line-height:1.6;
+
+    font-size:.95rem;
+
+}
+
+.botonEco{
+
+    margin-top:18px;
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    background:var(--verde);
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.tarjetaEco:hover .botonEco{
+
+    transform:translateX(6px);
+
+}
+/*=====================================================
+MODAL
+=====================================================*/
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    z-index:9999;
+
+}
+
+.ventana{
+
+    width:min(950px,95%);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:40px;
+
+    color:#333;
+
+    position:relative;
+
+    animation:aparecer .35s;
+
+}
+
+#cerrarModal{
+
+    position:absolute;
+
+    right:25px;
+
+    top:18px;
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+#cerrarModal:hover{
+
+    color:red;
+
+}
+
+.modal img{
+
+    width:100%;
+
+    border-radius:20px;
+
+    margin:20px 0;
+
+}
+
+.modal h2{
+
+    color:#2E7D32;
+
+    margin-bottom:20px;
+
+}
+
+.modal h3{
+
+    margin-top:25px;
+
+    color:#1B5E20;
+
+}
+
+.modal p{
+
+    line-height:1.8;
+
+    margin-top:8px;
+
+}
+/*========================================
+MODAL AMAZONÍA
+========================================*/
+
+.modal-amazonia .ventana{
+
+    border-top: 10px solid #2E7D32;
+
+}
+
+.modal-amazonia h2{
+
+    color:#2E7D32;
+
+}
+
+.modal-amazonia h3{
+
+    color:#1B5E20;
+
+}
+.modal-andes .ventana{
+
+    border-top: 10px solid #1565C0;
+
+}
+
+.modal-andes h2{
+
+    color:#1565C0;
+
+}
+
+.modal-andes h3{
+
+    color:#0D47A1;
+
+}
+/*=========================================
+PACÍFICO
+=========================================*/
+
+.modal-pacifico .ventana{
+
+    border-top:10px solid #0097A7;
+
+}
+
+.modal-pacifico h2{
+
+    color:#0097A7;
+
+}
+
+.modal-pacifico h3{
+
+    color:#006064;
+
+}
+
+/*=========================================
+CARIBE
+=========================================*/
+
+.modal-caribe .ventana{
+
+    border-top:10px solid #FB8C00;
+
+}
+
+.modal-caribe h2{
+
+    color:#FB8C00;
+
+}
+
+.modal-caribe h3{
+
+    color:#E65100;
+
+}
+/*=========================================
+ORINOQUÍA
+=========================================*/
+
+.modal-orinoquia .ventana{
+
+    border-top:10px solid #8BC34A;
+
+}
+
+.modal-orinoquia h2{
+
+    color:#689F38;
+
+}
+
+.modal-orinoquia h3{
+
+    color:#33691E;
+
+}
+
+/*=========================================
+INSULAR
+=========================================*/
+
+.modal-insular .ventana{
+
+    border-top:10px solid #29B6F6;
+
+}
+
+.modal-insular h2{
+
+    color:#0288D1;
+
+}
+
+.modal-insular h3{
+
+    color:#01579B;
+
+}
+
+/*=========================================
+EXPLORA
+=========================================*/
+
+.mapaColombia{
+
+    display:block;
+    width:100%;
+    max-width:650px;
+    margin:30px auto;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.botonesMapa{
+
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin:30px 0;
+
+}
+
+.botonesMapa button{
+
+    border:none;
+    padding:15px 22px;
+    border-radius:40px;
+    background:#2E7D32;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+.botonesMapa button:hover{
+
+    background:#1B5E20;
+    transform:translateY(-3px);
+
+}
+
+#infoMapa{
+
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    margin-top:30px;
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+    min-height:140px;
+
+}
+
+#infoMapa h3{
+
+    color:#2E7D32;
+    margin-bottom:10px;
+
+}
+
+#infoMapa p{
+
+    line-height:1.8;
+
+}
+/*=========================================
+MAPA INTERACTIVO
+=========================================*/
+
+.contenedorMapa{
+
+    position:relative;
+    max-width:650px;
+    margin:30px auto;
+
+}
+
+.pin{
+
+    position:absolute;
+    width:45px;
+    height:45px;
+
+    border:none;
+    border-radius:50%;
+
+    background:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+}
+
+.pin:hover{
+
+    transform:scale(1.25);
+
+}
+
+/*=========================================
+POSICIÓN DE LOS MARCADORES
+=========================================*/
+
+/* 🏝 CARIBE */
+.caribe{
+
+    top:10%;
+    left:48%;
+
+}
+
+/* 🌊 PACÍFICO */
+.pacifico{
+
+    top:46%;
+    left:18%;
+
+}
+
+/* 🏔 ANDES */
+.andes{
+
+    top:48%;
+    left:46%;
+
+}
+
+/* 🌾 ORINOQUÍA */
+.orinoquia{
+
+    top:50%;
+    left:74%;
+
+}
+
+/* 🌳 AMAZONÍA */
+.amazonia{
+
+    top:79%;
+    left:52%;
+
+}
+
+/* 🐠 INSULAR */
+.insular{
+
+    top:18%;
+    left:8%;
+
+}
+
+/*==================================================
+PANEL DE INFORMACIÓN DEL MAPA
+==================================================*/
+
+/*.panelInformacion{
+
+    width:90%;
+    max-width:700px;
+
+    margin:35px auto;
+
+    padding:28px;
+
+    background:rgba(255,255,255,.96);
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    border-left:8px solid var(--color-region,#2E7D32);
+
+    animation:aparecer .45s ease;
+
+    font-family:"Poppins",sans-serif;
+
+}
+*/
+/*----------------------------------------------*/
+
+.panelInformacion h2{
+
+    text-align:center;
+
+    color:#1B5E20;
+
+    font-size:26px;
+
+    margin-bottom:18px;
+
+}
+
+/*----------------------------------------------*/
+
+.panelInformacion p{
+
+    color:#444;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    text-align:left;
+
+}
+
+/*----------------------------------------------*/
+
+.panelInformacion hr{
+
+    border:none;
+
+    height:1px;
+
+    background:#81C784;
+
+    opacity:.45;
+
+    margin:20px 0;
+
+}
+
+/*----------------------------------------------*/
+
+.panelInformacion h3{
+
+    color:#1565C0;
+
+    font-size:20px;
+
+    margin-top:18px;
+
+    margin-bottom:8px;
+
+}
+
+/*----------------------------------------------*/
+
+.panelInformacion b{
+
+    color:#E65100;
+
+}
+
+/*==================================================
+ANIMACIÓN
+==================================================*/
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:768px){
+
+    .panelInformacion{
+
+        width:92%;
+
+        padding:22px;
+
+    }
+
+    .panelInformacion h2{
+
+        font-size:22px;
+
+    }
+
+    .panelInformacion h3{
+
+        font-size:18px;
+
+    }
+
+    .panelInformacion p{
+
+        font-size:15px;
+
+    }
+
+}
+
+/*=========================================
+FICHA GEOGRÁFICA
+=========================================*/
+
+.fichaMapa{
+
+    animation:aparecer .4s ease;
+
+}
+
+.fichaMapa h2{
+
+    text-align:center;
+
+    color:#2E7D32;
+
+    margin-bottom:20px;
+
+    font-size:30px;
+
+}
+
+.descripcionMapa{
+
+    text-align:center;
+
+    font-size:18px;
+
+    margin-bottom:30px;
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+.bloqueInfo{
+
+    background:#F5F8F4;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+    border-left:6px solid #4CAF50;
+
+    transition:.3s;
+
+}
+
+.bloqueInfo:hover{
+
+    transform:translateX(6px);
+
+}
+
+.bloqueInfo h3{
+
+    margin-bottom:8px;
+
+    color:#2E7D32;
+
+}
+
+.bloqueInfo p{
+
+    margin:0;
+
+    line-height:1.7;
+
+}
+
+/*=========================================
+PANTALLA DE INTRODUCCIÓN DEL JUEGO
+=========================================*/
+
+.pantallaJuego{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+    animation:aparecer .5s ease;
+
+}
+
+.introJuego{
+
+    width:100%;
+
+    max-width:850px;
+
+    background:rgba(255,255,255,.96);
+
+    border-radius:25px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+
+}
+
+.introJuego h2{
+
+    font-size:38px;
+
+    color:#2E7D32;
+
+    margin-bottom:20px;
+
+}
+
+.introJuego p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#555;
+
+    margin-bottom:18px;
+
+}
+
+/*=========================================
+TARJETAS DE INFORMACIÓN
+=========================================*/
+
+.objetivo{
+
+    background:#F5F8F4;
+
+    border-left:8px solid #4CAF50;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin:20px 0;
+
+    text-align:left;
+
+    transition:.3s;
+
+}
+
+.objetivo:hover{
+
+    transform:translateX(6px);
+
+}
+
+.objetivo h3{
+
+    color:#2E7D32;
+
+    margin-bottom:10px;
+
+}
+
+.objetivo p{
+
+    margin:0;
+
+}
+
+/*=========================================
+BOTÓN COMENZAR
+=========================================*/
+
+#btnComenzarJuego{
+
+    margin-top:25px;
+
+    background:linear-gradient(135deg,#43A047,#2E7D32);
+
+    color:white;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:18px 45px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 10px 20px rgba(46,125,50,.35);
+
+}
+
+#btnComenzarJuego:hover{
+
+    transform:translateY(-4px) scale(1.03);
+
+    box-shadow:0 15px 25px rgba(46,125,50,.45);
+
+}
+
+#btnComenzarJuego:active{
+
+    transform:scale(.98);
+
+}
+
+/*=========================================
+RESPONSIVE
+=========================================*/
+
+@media(max-width:768px){
+
+    .introJuego{
+
+        padding:30px 20px;
+
+    }
+
+    .introJuego h2{
+
+        font-size:30px;
+
+    }
+
+    .introJuego p{
+
+        font-size:16px;
+
+    }
+
+    #btnComenzarJuego{
+
+        width:100%;
+
+        font-size:18px;
+
+    }
+
+}
+
+/*=========================================
+JUEGO SCRATCH
+=========================================*/
+
+.juegoScratch{
+
+    width:95%;
+
+    max-width:1100px;
+
+    margin:40px auto;
+
+    text-align:center;
+
+    animation:aparecer .5s;
+
+}
+
+.juegoScratch h2{
+
+    color:#2E7D32;
+
+    margin-bottom:10px;
+
+}
+
+.juegoScratch p{
+
+    color:#555;
+
+    margin-bottom:20px;
+
+}
+
+.juegoScratch iframe{
+
+    width:100%;
+
+    height:700px;
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.20);
+
+    background:white;
+
+}
+
+.botonesJuego{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.botonesJuego button{
+
+    background:#2E7D32;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+.botonesJuego button:hover{
+
+    transform:translateY(-3px);
+
+    background:#1B5E20;
+
+}
+
+@media(max-width:768px){
+
+    .juegoScratch iframe{
+
+        height:500px;
+
+    }
+
+}
+
+/*=========================================
+MISIÓN FINALIZA
+=========================================*/
+
+.pantallaFinal{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+    animation:aparecer .5s ease;
+
+}
+
+.tarjetaFinal{
+
+    width:100%;
+    max-width:850px;
+
+    background:rgba(255,255,255,.96);
+
+    border-radius:25px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+
+}
+
+.tarjetaFinal h2{
+
+    font-size:40px;
+
+    color:#2E7D32;
+
+    margin-bottom:20px;
+
+}
+
+.tarjetaFinal p{
+
+    font-size:18px;
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+.tarjetaFinal button{
+
+    background:linear-gradient(135deg,#43A047,#2E7D32);
+
+    color:white;
+
+    border:none;
+
+    padding:18px 40px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    margin:10px;
+
+}
+
+.tarjetaFinal button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 20px rgba(46,125,50,.35);
+
+}
+
+@media(max-width:768px){
+
+    .tarjetaFinal{
+
+        padding:30px 20px;
+
+    }
+
+    .tarjetaFinal h2{
+
+        font-size:30px;
+
+    }
+
+    .tarjetaFinal p{
+
+        font-size:16px;
+
+    }
+
+    .tarjetaFinal button{
+
+        width:100%;
+
+    }
+
+}
+
+/*=========================================
+PANTALLA FINAL
+=========================================*/
+
+.pantallaFinal{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+    animation:aparecer .6s ease;
+
+}
+
+.tarjetaFinal{
+
+    width:100%;
+    max-width:900px;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+
+}
+
+.imgFinal{
+
+    width:240px;
+
+    margin-bottom:20px;
+
+    animation:flotar 3s ease-in-out infinite;
+
+}
+
+.tarjetaFinal h2{
+
+    font-size:42px;
+
+    color:#2E7D32;
+
+    margin-bottom:20px;
+
+}
+
+.tarjetaFinal p{
+
+    font-size:20px;
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+
+}
+
+.mensajeFinal{
+
+    font-size:24px !important;
+
+    color:#1B5E20 !important;
+
+    font-weight:bold;
+
+    margin:30px 0;
+
+}
+
+#btnReconocimiento{
+
+    margin-top:20px;
+
+    background:linear-gradient(135deg,#43A047,#2E7D32);
+
+    color:white;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:18px 45px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 10px 20px rgba(46,125,50,.35);
+
+}
+
+#btnReconocimiento:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 25px rgba(46,125,50,.45);
+
+}
+
+/*=========================================
+RECONOCIMIENTO
+=========================================*/
+
+.reconocimiento{
+
+    margin-top:40px;
+
+    padding:50px;
+
+    background:#fffdf6;
+
+    border:8px solid #d4af37;
+
+    border-radius:25px;
+
+    animation:aparecer .6s ease;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+}
+
+.encabezadoReconocimiento{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    font-size:55px;
+
+}
+
+.encabezadoReconocimiento h2{
+
+    color:#b8860b;
+
+    margin:10px 0;
+
+    font-size:38px;
+
+}
+
+.subtitulo{
+
+    color:#2E7D32;
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+.reconocimiento p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#555;
+
+    text-align:center;
+
+}
+
+.fraseReconocimiento{
+
+    margin:30px 0;
+
+    font-size:22px !important;
+
+    color:#1B5E20 !important;
+
+    font-style:italic;
+
+    font-weight:bold;
+
+}
+
+.fechaReconocimiento{
+
+    text-align:center;
+
+    margin-top:30px;
+
+    font-size:18px;
+
+}
+
+.botonesReconocimiento{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.botonesReconocimiento button{
+
+    background:linear-gradient(135deg,#43A047,#2E7D32);
+
+    color:white;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:16px 35px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.botonesReconocimiento button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 20px rgba(46,125,50,.35);
+
+}
+
+.avance{
+
+    transition:width .8s ease;
+
+}
+
+/* Listas dentro de las fichas del mapa */
+.bloqueInfo ul{
+    list-style: none;
+    margin: 10px 0 15px 0;
+    padding-left: 0;
+}
+
+.bloqueInfo li{
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 10px;
+    color: #444;
+    line-height: 1.6;
+}
+
+
+
+.bloqueInfo li::before{
+    content: "🌿";
+    position: absolute;
+    left: 0;
+}
+
+
+/*========================================
+PANTALLA FINALIZA
+========================================*/
+
+.pantallaFinaliza{
+
+    display:flex;
+    justify-content:center;
+    padding:40px 20px;
+
+}
+
+.introFinal{
+
+    max-width:850px;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+
+}
+
+.introFinal h2{
+
+    text-align:center;
+    color:#2e7d32;
+    margin-bottom:20px;
+
+}
+
+.introFinal p{
+
+    text-align:justify;
+    line-height:1.8;
+    color:#444;
+    font-size:18px;
+
+}
+
+.introFinal ul{
+
+    margin-left:25px;
+    line-height:1.8;
+
+}
+
+.introFinal li{
+
+    margin-bottom:10px;
+
+}
+
+#btnVerReconocimiento{
+
+    display:block;
+    margin:30px auto 0;
+
+}
+/*========================================
+CAJAS DE INFORMACIÓN (OBJETIVO)
+========================================*/
+
+.objetivo{
+
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    border-left: 8px solid #43a047;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 25px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.objetivo h3{
+
+    color:#2e7d32;
+    margin-bottom:12px;
+    font-size:22px;
+
+}
+
+.objetivo p{
+
+    color:#444;
+    line-height:1.7;
+    margin:0;
+
+}
+
+.objetivo ul{
+
+    margin:15px 0 0 25px;
+    padding:0;
+
+}
+
+.objetivo li{
+
+    margin-bottom:10px;
+    color:#444;
+    line-height:1.6;
+
+}
+
+
+#btnVerReconocimiento{
+
+    margin-top:20px;
+
+    background:linear-gradient(135deg,#43A047,#2E7D32);
+
+    color:white;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:18px 45px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 10px 20px rgba(46,125,50,.35);
+
+}
