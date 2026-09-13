@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Centro de Exploración</title>
+
+    <link rel="stylesheet" href="css/portal.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    
+
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<header>
+
+    <button id="volver">
+
+        ← Categorías
+
+    </button>
+
+    <div class="titulo">
+
+        <h1>🌎 Exploradores de los Ecosistemas Colombianos</h1>
+
+        <h2 id="nombreCategoria">
+            Cargando...
+        </h2>
+
+        <p>
+            Bienvenido explorador.
+            Tu misión está a punto de comenzar.
+        </p>
+
+        <div class="progreso">
+
+            <div class="textoProgreso">
+
+                <span>Nivel de exploración</span>
+
+                <span id="porcentaje">0%</span>
+
+            </div>
+
+        <div class="barra">
+
+            <div class="avance"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+<section class="acciones">
+
+    <h2 class="tituloPanel">
+
+        ¿Qué deseas hacer hoy?
+
+    </h2>
+
+</section>
+<main class="panel">
+
+    <!-- CONOCE -->
+    <div class="modulo" id="btnConoce">
+
+        <div class="icono">
+            <img src="img/conoce.png" alt="Conoce">
+        </div>
+
+        <h3>Conoce</h3>
+
+        <p>
+            Aprende sobre los ecosistemas colombianos mediante información interactiva.
+        </p>
+
+    </div>
+
+    <!-- EXPLORA -->
+    <div class="modulo" id="btnMapa">
+
+        <div class="icono">
+            <img src="img/explora.png" alt="Explora">
+        </div>
+
+        <h3>Explora</h3>
+
+        <p>
+            Descubre el mapa de Colombia y conoce sus ecosistemas.
+        </p>
+
+    </div>
+
+    <!-- JUEGA -->
+    <div class="modulo" id="btnJuego">
+
+        <div class="icono">
+            <img src="img/juega.png" alt="Juega">
+        </div>
+
+        <h3>Juega</h3>
+
+        <p>
+            Supera el reto desarrollado en Scratch y demuestra lo aprendido.
+        </p>
+
+    </div>
+
+    <!-- FINALIZA -->
+    <div class="modulo" id="btnFinal">
+
+        <div class="icono">
+            <img src="img/finaliza.png" alt="Finaliza">
+        </div>
+
+        <h3>Finaliza</h3>
+
+        <p>
+            Completa tu misión y recibe tu reconocimiento como explorador.
+        </p>
+
+    </div>
+
+</main>
+
+<!-- CONTENIDO DINÁMICO -->
+
+<section id="contenido" class="contenido">
+
+    <div class="mensajeInicial">
+
+        <img src="img/conoce.png" alt="Explorador">
+
+        <h2>
+            ¡Selecciona una misión!
+        </h2>
+
+        <p>
+            Elige una de las opciones anteriores para comenzar tu aventura por los ecosistemas colombianos.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="frase">
+
+    🌿 Conocer la naturaleza es el primer paso para protegerla.
+
+</section>
+<!-- VENTANA EMERGENTE -->
+
+<div id="modalEco" class="modal">
+
+    <div class="ventana">
+
+        <span id="cerrarModal">&times;</span>
+
+        <div id="contenidoModal">
+
+        </div>
+
+    </div>
+
+</div>
+<script src="js/portal.js"></script>
+
+</body>
+
+</html>
